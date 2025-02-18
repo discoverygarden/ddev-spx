@@ -1,0 +1,29 @@
+RUN <<EOS
+set -e
+apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends --no-install-suggests \
+  build-essential make autoconf libc-dev pkg-config php-pear php${DDEV_PHP_VERSION}-dev zlib1g-dev
+EOS
+
+WORKDIR /tmp/php-spx
+
+# php-spx:
+# - https://github.com/NoiseByNorthwest/php-spx/releases/tag/v0.4.15
+# - https://github.com/NoiseByNorthwest/php-spx/commit/6196f0b1778169b951e55491945c018da083b826
+ARG PHPSPX_VERSION_TAG=v0.4.15
+ARG PHPSPX_COMMIT_HASH=6196f0b1778169b951e55491945c018da083b826
+
+RUN <<EOS
+set -e
+git clone --depth 1 --branch $PHPSPX_VERSION_TAG https://github.com/NoiseByNorthwest/php-spx.git .
+# Ensure the tag represents what we think it should.
+git checkout $PHPSPX_COMMIT_HASH
+phpize${DDEV_PHP_VERSION}
+./configure --with-php-config=$(which php-config${DDEV_PHP_VERSION})
+make
+make install
+EOS
+
+WORKDIR /etc/php/$DDEV_PHP_VERSION/mods-available
+ADD --link spx.ini ./
+RUN chmod 777 /run/php
