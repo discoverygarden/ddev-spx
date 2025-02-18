@@ -1,3 +1,4 @@
+#ddev-generated
 RUN <<EOS
 set -e
 apt-get update
