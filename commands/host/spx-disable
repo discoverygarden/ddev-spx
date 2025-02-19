@@ -6,5 +6,9 @@
 ## Usage: spx-disable
 ## Example: ddev spx-disable
 
-ddev dotenv set .ddev/.env.spx --spx-addon-enabled false
-ddev restart
+if ddev spx-is-enabled 2> /dev/null ; then
+  ddev dotenv set .ddev/.env.spx --spx-addon-enabled false
+  ddev restart
+else
+  echo "SPX does not appear to be enabled; doing nothing."
+fi

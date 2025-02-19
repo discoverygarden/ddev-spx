@@ -6,7 +6,7 @@
 ## Usage: spx-launch
 ## Example: ddev spx-launch
 
-if ! ddev spx-is-enabled ; then
+if ! ddev spx-is-enabled 2> /dev/null ; then
   ddev spx-enable
 fi
 

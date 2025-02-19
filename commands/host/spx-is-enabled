@@ -7,7 +7,7 @@
 ## Example: ddev spx-is-enabled
 
 IS_ENABLED=$(ddev dotenv get .ddev/.env.spx --spx-addon-enabled 2> /dev/null)
-if [ "$SPX_ADDON_SET" = "true" ] ; then
+if [ "$IS_ENABLED" = "true" ] ; then
   exit 0
 else
   exit 1
