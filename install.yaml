@@ -59,6 +59,11 @@ pre_install_actions:
 # If you use directories, they must be directories that are managed
 # by this add-on, or removal could remove things that are not owned by it
 project_files:
+  - commands/host/spx-enable
+  - commands/host/spx-disable
+  - commands/host/spx-is-enabled
+  - commands/host/spx-launch
+  - config.spx.yaml
   - web-build/Dockerfile.spx
   - web-build/spx.ini
   # - commands/web/add-on-command

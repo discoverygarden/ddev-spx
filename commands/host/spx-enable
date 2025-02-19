@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+#ddev-generated
+
+## Description: Enable SPX
+## Usage: spx-enable
+## Example: ddev spx-enable
+
+ddev dotenv set .ddev/.env.spx --spx-addon-enabled true
+ddev restart
