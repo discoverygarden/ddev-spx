@@ -2,7 +2,7 @@
 
 #ddev-generated
 
-## Description: Disable SPX
+## Description: Disable SPX.
 ## Usage: spx-disable
 ## Example: ddev spx-disable
 

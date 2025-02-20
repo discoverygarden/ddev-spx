@@ -2,7 +2,7 @@
 
 #ddev-generated
 
-## Description: Determin if SPX appears to be enabled.
+## Description: Determine if SPX appears to be enabled.
 ## Usage: spx-is-enabled
 ## Example: ddev spx-is-enabled
 
