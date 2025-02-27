@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#ddev-generated
+
+## Description: Disable SPX.
+## Usage: spx-disable
+## Example: ddev spx-disable
+
+if ddev spx-is-enabled 2> /dev/null ; then
+  ddev dotenv set .ddev/.env.spx --spx-addon-enabled false
+  ddev restart
+else
+  echo "SPX does not appear to be enabled; doing nothing."
+fi

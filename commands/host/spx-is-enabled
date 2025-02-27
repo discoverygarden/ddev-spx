@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#ddev-generated
+
+## Description: Determine if SPX appears to be enabled.
+## Usage: spx-is-enabled
+## Example: ddev spx-is-enabled
+
+IS_ENABLED=$(ddev dotenv get .ddev/.env.spx --spx-addon-enabled 2> /dev/null)
+if [ "$IS_ENABLED" = "true" ] ; then
+  exit 0
+else
+  exit 1
+fi

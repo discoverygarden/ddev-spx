@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+#ddev-generated
+
+## Description: Launch browser with SPX GUI.
+## Usage: spx-launch
+## Example: ddev spx-launch
+
+if ! ddev spx-is-enabled 2> /dev/null ; then
+  ddev spx-enable
+fi
+
+ddev launch "/?SPX_KEY=dev&SPX_UI_URI=/"

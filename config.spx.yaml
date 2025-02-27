@@ -1,0 +1,12 @@
+---
+#ddev-generated
+hooks:
+  post-start:
+    - exec-host: |
+        if ddev spx-is-enabled 2> /dev/null ; then
+          echo "Enabling SPX and telling php-fpm about it."
+          ddev exec phpenmod -v \$DDEV_PHP_VERSION spx
+          ddev exec killall -USR2 php-fpm
+        else
+          echo "PHP SPX is not enabled; leaving disabled in the container."
+        fi

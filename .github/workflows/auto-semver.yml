@@ -1,0 +1,24 @@
+name: Release
+on:
+  pull_request_target:
+    types: closed
+    branches:
+      - main
+jobs:
+  release:
+    permissions:
+      contents: write
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.semver.outputs.tag }}
+    steps:
+      - name: Run Auto Semver
+        id: semver
+        uses: discoverygarden/auto-semver@v1
+        with:
+          prefix: v
+      - name: Release
+        run: gh release create --repo ${{ github.repository }} ${{ steps.semver.outputs.tag }}
+        env:
+          GH_TOKEN: ${{ github.token }}
