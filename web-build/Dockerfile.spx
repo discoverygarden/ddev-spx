@@ -9,10 +9,10 @@ EOS
 WORKDIR /tmp/php-spx
 
 # php-spx:
-# - https://github.com/NoiseByNorthwest/php-spx/releases/tag/v0.4.15
-# - https://github.com/NoiseByNorthwest/php-spx/commit/6196f0b1778169b951e55491945c018da083b826
-ARG PHPSPX_VERSION_TAG=v0.4.15
-ARG PHPSPX_COMMIT_HASH=6196f0b1778169b951e55491945c018da083b826
+# - https://github.com/NoiseByNorthwest/php-spx/releases/tag/v0.4.22
+# - https://github.com/NoiseByNorthwest/php-spx/commit/625fa8542415ff9cd3380432989b1cd139e1d346
+ARG PHPSPX_VERSION_TAG=v0.4.22
+ARG PHPSPX_COMMIT_HASH=625fa8542415ff9cd3380432989b1cd139e1d346
 
 RUN <<EOS
 set -e
